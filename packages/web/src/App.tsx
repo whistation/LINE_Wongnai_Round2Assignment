@@ -1,12 +1,17 @@
 import axios from "axios";
 
 function App() {
-  axios.get("http://localhost:3001/")
-  .then((res) => {
-    console.log(res)
-  }, (error) => {
-    console.log("error!")
-  });
+
+  //test data api call
+  const data = async () => {
+    const res = await axios.get("http://localhost:3001/restaurants/227018");
+    console.log(res);
+  } 
+  try {
+    data();
+  } catch (error){
+    console.log("error");
+  }
 
   return (
     <div>

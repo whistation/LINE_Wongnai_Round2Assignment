@@ -1,5 +1,6 @@
 import express, { Application } from "express";
 import cors from "cors";
+import restaurantRouter from "./routers/restaurant_router";
 
 const app: Application = express();
 const port = 3001;
@@ -13,7 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors(options));
 
 app.get("/", (req, res) => res.send("LINE MAN Wongnai Frontend Assignment"));
-app.get("/test", (req, res) => res.send("Test complete"));
+
+app.use("/restaurants", restaurantRouter);
+
 
 try {
 	app.listen(port, (): void => {
