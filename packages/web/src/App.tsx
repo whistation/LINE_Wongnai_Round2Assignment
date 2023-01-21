@@ -1,23 +1,16 @@
-import axios from "axios";
+import { Routes, Route } from 'react-router-dom';
+import Home from './screens/Home';
+import Restaurant from './screens/Restaurant';
 
 function App() {
-
-  //test data api call
-  const data = async () => {
-    const res = await axios.get("http://localhost:3001/restaurants/227018");
-    console.log(res);
-  } 
-  try {
-    data();
-  } catch (error){
-    console.log("error");
-  }
-
   return (
-    <div>
-      <h1>Edit this app to complete LINE MAN Wongnai Frontend Assignment!</h1>
-    </div>
-  )
+    <>
+       <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Restaurant" element={<Restaurant />} />
+       </Routes>
+    </>
+ );
 }
 
 export default App
