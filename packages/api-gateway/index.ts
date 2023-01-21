@@ -1,6 +1,6 @@
 import express, { Application } from "express";
-import cors from "cors";
 import restaurantRouter from "./routers/restaurant_router";
+import cors from "cors";
 
 const app: Application = express();
 const port = 3001;

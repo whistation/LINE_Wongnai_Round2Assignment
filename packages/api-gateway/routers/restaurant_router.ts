@@ -29,3 +29,5 @@ restaurantRouter.get("/homepage", (req, res) => {
 	}
 	res.send(result);
 })
+
+export default restaurantRouter;
