@@ -14,7 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors(options));
 
 app.get("/", (req, res) => res.send("LINE MAN Wongnai Frontend Assignment"));
-
 app.use("/restaurants", restaurantRouter);
 
 
