@@ -1,6 +1,6 @@
 import axios from "axios";
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -16,6 +16,7 @@ import Button from '@mui/material/Button';
 import { useState, useEffect } from "react";
 
 function Home() {
+  const navigate = useNavigate();
 
   //Get data for restaurant listings
   const listingDefault = [{id: 1, name: "default", open: "0900", close: "1700", coverImage: "url"}];
@@ -55,7 +56,7 @@ function Home() {
                     </Typography>
                   </Box>
               </Box>
-              <Box sx={contentBackground}>
+              <Box sx={homepageContentBackground}>
                   <Searchbar/>
                   <Box sx={gridBackground}>
                       <Grid 
@@ -82,18 +83,17 @@ function Home() {
                                   </Typography>
                                 </CardContent>
                                 <CardActions disableSpacing sx={{ mt: "auto" }}>
-                                  <Button size="small">View Menu</Button>
+                                  <Button size="small" onClick={() => navigate("/Restaurant")}>View Menu</Button>
                                 </CardActions>
                               </Card>
                             </Grid>
                           ))}
-                          
+
                       </Grid>
                   </Box>
                  
               </Box>
               <HomeBackground/>
-                          
             </Container>
     </React.Fragment>
 
@@ -125,7 +125,7 @@ const headerHighlight = {
   alignItems: 'center'
 }
 
-const contentBackground = {
+const homepageContentBackground = {
   bgcolor:"white",
   width: "100vw",
   height: "100vh",
@@ -135,7 +135,8 @@ const contentBackground = {
   top: 200,
   zIndex: 2,
   alignItems: 'center',
-  borderRadius: 25
+  borderRadius: 25,
+  flexGrow: 1
 }
 
 const gridBackground = {
