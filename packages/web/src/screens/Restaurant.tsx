@@ -16,7 +16,7 @@ import {
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
-  padding: theme.spacing(1),
+  padding: theme.spacing(0),
   color: theme.palette.text.secondary,
   textAlign:"center",
   border: "1px solid #D9D9D9"
@@ -52,24 +52,109 @@ function Restaurant() {
                 </ThemeProvider>
               </Item>
               <Item sx={restaurantContentBackground}>
-                <Typography sx={{pt: 2, color:"black", fontSize:25}}>
+                <Typography sx={{pt: 2, color:"black", fontSize:25, fontStyle:"italic", fontWeight: "semilight"}}>
                   Opening hours: 1200-1200
                 </Typography>
 
-                <Box sx={{ width: '90%', mt: 2, mb: 2, ml: 10, mr: 10, overflow:'auto' }}>
+                <Box sx={{ width: '90%', pr:2, pl:2, pt: 2, pb: 2, mt: 2, mb: 5, ml: 10, mr: 10, overflow:'auto', border:"1px solid #69A8FF", borderRadius:5 }}>
                   <Stack spacing={2}>
-                    <Item>Item 1</Item>
-                    <Item>Item 2</Item>
-                    <Item>Item 3</Item>
-                    <Item>Item 1</Item>
-                    <Item>Item 2</Item>
-                    <Item>Item 3</Item>
-                    <Item>Item 1</Item>
-                    <Item>Item 2</Item>
-                    <Item>Item 3</Item>
-                    <Item>Item 1</Item>
-                    <Item>Item 2</Item>
-                    <Item>Item 3</Item>
+
+                    <Item sx={{pl: 1, pr: 3}}>
+                      <Stack direction="row" >
+                        <Box component='img' src="https://img.wongnai.com/p/100x100/2021/04/16/849fae362cd043e6b68cf6ba55a8457c.jpg"/>
+                        <Box sx={{pl:2, width:"100%", display:"flex", flexDirection:"row", alignItems:"center", bgcolor:"white"}}>
+                          <Typography sx={{fontSize:20}}>
+                            Set A กะเพราหมูสับไข่ดาว + กาแฟ
+                          </Typography>
+                        </Box>
+                        <Box sx={{pl:2, width:"20%", display:"flex", flexDirection:"row", alignItems:"center", justifyContent: "flex-end"}}>
+                          <Typography alignSelf="right" sx={{fontSize:20 }}>
+                            208
+                          </Typography>
+                        </Box>
+                      </Stack>
+                    </Item>
+
+                    <Item sx={{pl: 1, pr: 3}}>
+                      <Stack direction="row" >
+                        <Box component='img' src="https://img.wongnai.com/p/100x100/2021/04/16/849fae362cd043e6b68cf6ba55a8457c.jpg"/>
+                        <Box sx={{pl:2, width:"100%", display:"flex", flexDirection:"row", alignItems:"center", bgcolor:"white"}}>
+                          <Typography sx={{fontSize:20}}>
+                            Set A กะเพราหมูสับไข่ดาว + กาแฟ
+                          </Typography>
+                        </Box>
+                        <Box sx={{pl:2, width:"20%", display:"flex", flexDirection:"row", alignItems:"center", justifyContent: "flex-end"}}>
+                          <Typography alignSelf="right" sx={{fontSize:20 }}>
+                            208
+                          </Typography>
+                        </Box>
+                      </Stack>
+                    </Item>
+
+                    <Item sx={{pl: 1, pr: 3}}>
+                      <Stack direction="row" >
+                        <Box component='img' src="https://img.wongnai.com/p/100x100/2021/04/16/849fae362cd043e6b68cf6ba55a8457c.jpg"/>
+                        <Box sx={{pl:2, width:"100%", display:"flex", flexDirection:"row", alignItems:"center", bgcolor:"white"}}>
+                          <Typography sx={{fontSize:20}}>
+                            Set A กะเพราหมูสับไข่ดาว + กาแฟ
+                          </Typography>
+                        </Box>
+                        <Box sx={{pl:2, width:"20%", display:"flex", flexDirection:"row", alignItems:"center", justifyContent: "flex-end"}}>
+                          <Typography alignSelf="right" sx={{fontSize:20 }}>
+                            208
+                          </Typography>
+                        </Box>
+                      </Stack>
+                    </Item>
+
+                    <Item sx={{pl: 1, pr: 3}}>
+                      <Stack direction="row" >
+                        <Box component='img' src="https://img.wongnai.com/p/100x100/2021/04/16/849fae362cd043e6b68cf6ba55a8457c.jpg"/>
+                        <Box sx={{pl:2, width:"100%", display:"flex", flexDirection:"row", alignItems:"center", bgcolor:"white"}}>
+                          <Typography sx={{fontSize:20}}>
+                            Set A กะเพราหมูสับไข่ดาว + กาแฟ
+                          </Typography>
+                        </Box>
+                        <Box sx={{pl:2, width:"20%", display:"flex", flexDirection:"row", alignItems:"center", justifyContent: "flex-end"}}>
+                          <Typography alignSelf="right" sx={{fontSize:20 }}>
+                            208
+                          </Typography>
+                        </Box>
+                      </Stack>
+                    </Item>
+
+                    <Item sx={{pl: 1, pr: 3}}>
+                      <Stack direction="row" >
+                        <Box component='img' src="https://img.wongnai.com/p/100x100/2021/04/16/849fae362cd043e6b68cf6ba55a8457c.jpg"/>
+                        <Box sx={{pl:2, width:"100%", display:"flex", flexDirection:"row", alignItems:"center", bgcolor:"white"}}>
+                          <Typography sx={{fontSize:20}}>
+                            Set A กะเพราหมูสับไข่ดาว + กาแฟ
+                          </Typography>
+                        </Box>
+                        <Box sx={{pl:2, width:"20%", display:"flex", flexDirection:"row", alignItems:"center", justifyContent: "flex-end"}}>
+                          <Typography alignSelf="right" sx={{fontSize:20 }}>
+                            208
+                          </Typography>
+                        </Box>
+                      </Stack>
+                    </Item>
+
+                    <Item sx={{pl: 1, pr: 3}}>
+                      <Stack direction="row" >
+                        <Box component='img' src="https://img.wongnai.com/p/100x100/2021/04/16/849fae362cd043e6b68cf6ba55a8457c.jpg"/>
+                        <Box sx={{pl:2, width:"100%", display:"flex", flexDirection:"row", alignItems:"center", bgcolor:"white"}}>
+                          <Typography sx={{fontSize:20}}>
+                            Set A กะเพราหมูสับไข่ดาว + กาแฟ
+                          </Typography>
+                        </Box>
+                        <Box sx={{pl:2, width:"20%", display:"flex", flexDirection:"row", alignItems:"center", justifyContent: "flex-end"}}>
+                          <Typography alignSelf="right" sx={{fontSize:20 }}>
+                            208
+                          </Typography>
+                        </Box>
+                      </Stack>
+                    </Item>
+                    
                   </Stack>
                 </Box>
               </Item>
