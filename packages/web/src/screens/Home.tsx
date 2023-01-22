@@ -10,26 +10,30 @@ import Searchbar from "../components/Searchbar";
 import Grid from "@mui/material/Grid";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import styled from '@mui/system/styled';
-import image from "../assets/foodstuffs.jpg";
 import CardActions from '@mui/material/CardActions';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-
-
+import { useState, useEffect } from "react";
 
 function Home() {
 
-  //test data api call
-  const data = async () => {
-    const res = await axios.get("http://localhost:3001/restaurants/227018");
-    console.log(res);
+  //Get data for restaurant listings
+  const listingDefault = [{id: 1, name: "default", open: "0900", close: "1700", coverImage: "url"}];
+  const [listings, setListings] = useState(listingDefault);
+  const getData = async () => {
+    const res = await axios.get("http://localhost:3001/restaurants/homepage");
+    setListings(res.data);
   } 
-  try {
-    data();
-  } catch (error){
-    console.log("error");
-  }
+
+  useEffect(() => {
+    try {
+      getData();
+      console.log(listings);
+    } catch (error){
+      console.log("error");
+    }
+  }, [listings]);
+
 
   return (
     <React.Fragment>
@@ -59,83 +63,31 @@ function Home() {
                         rowSpacing={7} 
                         columnSpacing={{ xs: 1, sm: 2, md: 3 }} 
                         sx={gridContainer}>
-
-                          <Grid item xs={6} sx={{display: 'flex',
-                          flexDirection: 'row',
-                          justifyContent: 'center'}}>
-                            <Card sx={{ maxWidth: 500 }}>
-                              <CardMedia
-                                sx={{ height: 250 }}
-                                image={image}
-                                title="green iguana"
-                              />
-                              <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
-                                  Lizard
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                                  species, ranging across all continents except Antarctica
-                                </Typography>
-                              </CardContent>
-                              <CardActions>
-                                <Button size="small">Share</Button>
-                                <Button size="small">Learn More</Button>
-                              </CardActions>
-                            </Card>
-                          </Grid>
-
-                          <Grid item xs={6} sx={{display: 'flex',
-                          flexDirection: 'row',
-                          justifyContent: 'center'}}>
-                            <Card sx={{ maxWidth: 500 }}>
-                              <CardMedia
-                                sx={{ height: 250 }}
-                                image={image}
-                                title="green iguana"
-                              />
-                              <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
-                                  Lizard
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                                  species, ranging across all continents except Antarctica
-                                </Typography>
-                              </CardContent>
-                              <CardActions>
-                                <Button size="small">Share</Button>
-                                <Button size="small">Learn More</Button>
-                              </CardActions>
-                            </Card>
-                          </Grid>
-
-                          <Grid item xs={6} sx={{display: 'flex',
-                          flexDirection: 'row',
-                          justifyContent: 'center'}}>
-                            <Card sx={{ maxWidth: 500 }}>
-                              <CardMedia
-                                sx={{ height: 250 }}
-                                image={image}
-                                title="green iguana"
-                              />
-                              <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
-                                  Lizard
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                                  species, ranging across all continents except Antarctica
-                                </Typography>
-                              </CardContent>
-                              <CardActions>
-                                <Button size="small">Share</Button>
-                                <Button size="small">Learn More</Button>
-                              </CardActions>
-                            </Card>
-                          </Grid>
                           
-
+                          {listings.map((listings) => (
+                            <Grid item key={listings.id} xs={6} sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+                              <Card sx={{ maxWidth: 500, height: "100%", display: "flex", flexDirection: "column"}}>
+                                <CardMedia
+                                  component="img"
+                                  sx={{ height: 250 }}
+                                  image={listings.coverImage}
+                                  title="Restaurant cover image"
+                                />
+                                <CardContent>
+                                  <Typography gutterBottom variant="h5" component="div">
+                                    {listings.name}
+                                  </Typography>
+                                  <Typography variant="body2" color="text.secondary">
+                                    {"" + listings.open + "-" + listings.close}
+                                  </Typography>
+                                </CardContent>
+                                <CardActions disableSpacing sx={{ mt: "auto" }}>
+                                  <Button size="small">View Menu</Button>
+                                </CardActions>
+                              </Card>
+                            </Grid>
+                          ))}
+                          
                       </Grid>
                   </Box>
                  
