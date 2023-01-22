@@ -2,7 +2,7 @@ import express from 'express';
 import axios from 'axios';
 
 const restaurantRouter = express.Router();
-let restaurantIDs = [227018, 567051];
+const restaurantIDs = [227018, 567051];
 
 //get all restaurant IDs
 restaurantRouter.get("/", (req, res) => res.send(restaurantIDs));

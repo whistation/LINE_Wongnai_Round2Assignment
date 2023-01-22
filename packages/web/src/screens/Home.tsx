@@ -22,7 +22,7 @@ function Home() {
   const listingDefault = [{id: 1, name: "default", open: "0900", close: "1700", coverImage: "url"}];
   const [listings, setListings] = useState(listingDefault);
   const getData = async () => {
-    const res = await axios.get("http://localhost:3001/restaurants/homepage");
+    const res = await axios.get("http://localhost:3001/restaurantdata/homepage");
     setListings(res.data);
   } 
 
@@ -83,7 +83,9 @@ function Home() {
                                   </Typography>
                                 </CardContent>
                                 <CardActions disableSpacing sx={{ mt: "auto" }}>
-                                  <Button size="small" onClick={() => navigate("/Restaurant")}>View Menu</Button>
+                                  <Button size="small" onClick={() => navigate("/Restaurant", {state: {restaurantID: listings.id}})}>
+                                    View Menu
+                                  </Button>
                                 </CardActions>
                               </Card>
                             </Grid>

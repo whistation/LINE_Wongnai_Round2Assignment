@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 import Typography from '@mui/material/Typography';
 import { CssBaseline } from "@mui/material";
 import { Container } from "@mui/system";
@@ -27,7 +28,9 @@ let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
 function Restaurant() {
-
+  const location = useLocation();
+  const restaurantID = location.state.restaurantID;
+  console.log(restaurantID);
 
     return (
       <React.Fragment>
@@ -42,7 +45,6 @@ function Restaurant() {
               position: 'absolute',
               zIndex: 2,
               alignItems: 'center',
-              // bgcolor:"red"
             }}>
               <Item sx={{mt: 5, width:"85vw"}}>
                 <ThemeProvider theme={theme}>
@@ -84,9 +86,13 @@ function Restaurant() {
                           </Typography>
                         </Box>
                         <Box sx={{pl:2, width:"20%", display:"flex", flexDirection:"row", alignItems:"center", justifyContent: "flex-end"}}>
-                          <Typography alignSelf="right" sx={{fontSize:20 }}>
+                          <Typography alignSelf="right" sx={{fontSize:20, textDecoration:"line-through" }}>
                             208
                           </Typography>
+                          <Typography alignSelf="right" sx={{fontSize:20 }}>
+                            100!
+                          </Typography>
+
                         </Box>
                       </Stack>
                     </Item>
