@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import restaurantRouter from "./routers/restaurant_router";
 import shortMenuRouter from "./routers/short_menu_router";
+import fullMenuRouter from "./routers/full_menu_router";
 import cors from "cors";
 
 const app: Application = express();
@@ -17,6 +18,7 @@ app.use(cors(options));
 // app.get("/", (req, res) => res.send("LINE MAN Wongnai Frontend Assignment"));
 app.use("/restaurantdata", restaurantRouter);
 app.use("/shortmenudata", shortMenuRouter);
+app.use("/fullmenudata", fullMenuRouter);
 
 
 try {

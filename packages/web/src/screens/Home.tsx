@@ -17,18 +17,19 @@ import { useState, useEffect } from "react";
 
 function Home() {
   const navigate = useNavigate();
+  localStorage.clear();
 
   //Get data for restaurant listings
   const listingDefault = [{id: 1, name: "default", open: "0900", close: "1700", coverImage: "url"}];
   const [listings, setListings] = useState(listingDefault);
-  const getData = async () => {
+  const getListings = async () => {
     const res = await axios.get("http://localhost:3001/restaurantdata/homepage");
     setListings(res.data);
   } 
 
   useEffect(() => {
     try {
-      getData();
+      getListings();
       console.log(listings);
     } catch (error){
       console.log("error");
@@ -83,8 +84,18 @@ function Home() {
                                   </Typography>
                                 </CardContent>
                                 <CardActions disableSpacing sx={{ mt: "auto" }}>
-                                  <Button size="small" onClick={() => navigate("/Restaurant", {state: {restaurantID: listings.id}})}>
-                                    View Menu
+                                  <Button 
+                                    size="small" 
+                                    onClick={
+                                      () => {
+                                        localStorage.setItem("restaurantName", listings.name);
+                                        localStorage.setItem("open", listings.open);
+                                        localStorage.setItem("close", listings.close);
+                                        localStorage.setItem("coverImage", listings.coverImage);
+                                        navigate("/Restaurant", {state: {restaurantID: listings.id}})
+                                      }}
+                                  >
+                                      View Menu
                                   </Button>
                                 </CardActions>
                               </Card>

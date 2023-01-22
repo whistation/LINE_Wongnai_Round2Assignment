@@ -28,7 +28,12 @@ shortMenuRouter.get("/:id", async (req, res) => {
     })
     .then(
       (response) => {
-        const discountedPrice = response.data.fullPrice * ((100 - response.data.discountedPercent) / 100);
+        var discountedPrice = 0;
+        if (response.data.discountedPercent > 0) {
+          discountedPrice = response.data.fullPrice * ((100 - response.data.discountedPercent) / 100);
+        } else {
+          discountedPrice = response.data.fullPrice;
+        }
         
         result.push({
           id: response.data.id,
